@@ -3,6 +3,7 @@
  *
  * @return
  */
+package me.dousha
 fun Array<out String>.toCommand(): String {
     var command = ""
     forEach {

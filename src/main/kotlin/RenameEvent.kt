@@ -1,3 +1,4 @@
+package me.dousha
 import net.mamoe.mirai.event.AbstractEvent
 
 /**
