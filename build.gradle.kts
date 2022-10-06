@@ -21,7 +21,8 @@ dependencies {
     implementation("com.google.code.gson:gson:2.9.0")
     implementation("dnsjava:dnsjava:3.5.1")
     implementation("com.google.guava:guava:31.1-jre")
-
+    implementation("com.alibaba:fastjson:2.0.14.graal")
+    shadow("com.alibaba:fastjson:2.0.14.graal")
     shadow("net.md-5:bungeecord-chat:1.16-R0.4")
     shadow("com.google.code.gson:gson:2.9.0")
     shadow("dnsjava:dnsjava:3.5.1")

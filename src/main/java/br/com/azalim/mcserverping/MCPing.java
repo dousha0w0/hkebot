@@ -57,7 +57,7 @@ public class MCPing {
      * @return {@link MCPingResponse}
      * @throws IOException
      */
-    public static br.com.azalim.mcserverping.MCPingResponse getPing(final String address) throws IOException {
+    public static MCPingResponse getPing(final String address) throws IOException {
         return getPing(br.com.azalim.mcserverping.MCPingOptions.builder().hostname(address).build());
     }
 
@@ -68,7 +68,7 @@ public class MCPing {
      * @return {@link MCPingResponse}
      * @throws IOException
      */
-    public static br.com.azalim.mcserverping.MCPingResponse getPing(final br.com.azalim.mcserverping.MCPingOptions options) throws IOException {
+    public static MCPingResponse getPing(final br.com.azalim.mcserverping.MCPingOptions options) throws IOException {
 
         Preconditions.checkNotNull(options.getHostname(), "Hostname cannot be null.");
 
@@ -119,6 +119,7 @@ public class MCPing {
                 out.write(handshake_bytes.toByteArray());
 
                 //> Status request
+                out.writeByte(0xFE); // Size of packet
                 out.writeByte(0x01); // Size of packet
                 out.writeByte(MCPingUtil.PACKET_STATUSREQUEST);
 
@@ -181,7 +182,7 @@ public class MCPing {
         output.setPing(ping);
         output.setHostname(hostname);
         output.setPort(port);
-        
+
         return output;
     }
 
